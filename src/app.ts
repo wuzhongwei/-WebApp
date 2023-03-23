@@ -1,8 +1,7 @@
 import Koa from 'koa'
 import body from 'koa-body' // koa-body不仅能处理post请求的数据，同时也能够处理文件类型的上传。更强大
 import json from 'koa-json' // 格式化json
-import Router from 'koa-router'
-import userRouter from './router/user'
+import config from './config'
 import routing from './router'
 
 const app = new Koa()
@@ -12,7 +11,7 @@ const app = new Koa()
 // router.get('/test', async(ctx: Koa.Context, next: Koa.Next) => {
 //   ctx.body = 'test'
 // })
-
+console.log('wwwwwww', config)
 
 app.use(json())
 app.use(body())
