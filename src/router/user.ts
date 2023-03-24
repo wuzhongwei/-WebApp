@@ -1,17 +1,8 @@
-import {Context} from 'koa'
 import Router from 'koa-router'
+import user from '../controllers/user'
 
-const router = new Router()
-router.prefix('/usermodule')
+const router = new Router({prefix: '/usermodule'})
 
-router.get('/findUserInfo/:username', async(ctx: Context) => {
-  const {username} = ctx.params
-  ctx.body = `欢迎${username}`
-})
-
-router.post('/adduser', async(ctx) => {
-  const user = ctx.request.body
-  ctx.body = `欢迎${user.username}`
-})
+router.post('/adduser', user.createUser)
 
 export default router
