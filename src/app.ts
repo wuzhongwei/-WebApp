@@ -6,14 +6,22 @@ dotenv.config({ path: `.env.${process.env.NODE_ENV}` })
 
 import routing from './router'
 import {init} from  './db';
+
+import firstctgy from './model/firstctgy'
+import secondctgy from './model/secondctgy'
+import thirdctgy from './model/thirdctgy'
+import onetomany from './model/onetomany'
 const app = new Koa()
 
 app.use(json())
 app.use(body())
+// app.use(globalError)
 routing(app)
 
 const port = 3002
 app.listen(port, () => {
+  console.log(firstctgy,secondctgy,thirdctgy)
   init()
+  console.log('one', onetomany)
   console.log('启动成功端口：', port)
 })

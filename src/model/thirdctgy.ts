@@ -1,21 +1,22 @@
 import { DataTypes } from 'sequelize'
 import { sequelize } from '../db'
 // 定义数据模型
-const User = sequelize.define("user", {
-  id: {
+const Thirdctgy = sequelize.define("thirdctgy", {
+  thirdctgyid: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  username: DataTypes.STRING(30), // 账号
-  password: { // 密码
-    type: DataTypes.STRING,
+  thirdname: {
+    type: DataTypes.STRING(20),
+    allowNull: false
   },
-  valid: { // 是否合法
-    type: DataTypes.TINYINT,
+  secctgyid: {
+    type: DataTypes.INTEGER,
     allowNull: true
-  }
+  },
 }, {
+  timestamps: false,
   freezeTableName: true
 });
-export default User
+export default Thirdctgy
